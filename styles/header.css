@@ -1,0 +1,23 @@
+.header {
+  position: sticky;
+  height: 150px;
+  z-index: 999;
+  top: 0;
+  padding: 10px 0px;
+  opacity: 0.9;  
+}
+
+.header .header__items {
+  display: flex;
+  padding: 20px;
+}
+
+.header__image img {
+  border-radius: 5px;
+  width: 50px;
+}
+
+.header__items > div {
+  width: 50%;
+}
+
