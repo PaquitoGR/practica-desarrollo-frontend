@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+  <link rel="stylesheet" href="./styles/normalize.css" />
+  <link rel="stylesheet" href="./styles/common.css" />
+  <link rel="stylesheet" href="./styles/create-ad.css" />
+  <title>KeePoP Create Ad</title>
+</head>
+<body>
+  <header>
+    <a href="/">
+      <h1>KeePoP</h1>
+    </a>
+  </header>
+  <h2>Create Ad</h2>
+  
+  <form id="create-ad-form" >
+    <label for="name">Item name:</label>
+    <input type="text" name="name" id="name" required />
+    
+    <label for="description">Description:</label>
+    <textarea name="description" id="description" cols="30" rows="6" required></textarea>
+    
+    <label for="price">Price:</label>
+    <input type="number" name="price" size="5" id="price" min=0 required />
+    
+    <label for="sale">Sale</label>
+    <input type="radio" class="radio" name="ad-type" id="sale" value="sale">
+    <label for="buy">Buy</label>
+    <input type="radio" class="radio" name="ad-type" id="buy" value="buy">
+    
+    <label for="image">Image</label>
+    <label for="image" class="custom-image-upload">Browse...</label>
+    <input type="file" id="image" name="image" accept="image/*">
+    
+    <button type="submit">Upload your Ad</button>
+    <button type="reset">Clear form</button>
+  </form>
+  
+  <script type="module" src="./create-ad/index.js"></script>
+</body>
+</html>
