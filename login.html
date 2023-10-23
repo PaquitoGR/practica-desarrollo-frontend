@@ -11,10 +11,10 @@
 <body>
   <header>
     <h1>KeePoP</h1>
-    <h2>Login or Register</h2>
   </header>
   <h2>Log-In</h2>
-  <form action="" method="post">
+
+  <form id="login-form">
       <label for="username">User Name:</label>
       <input type="text" id="username" name="username" required />
       
@@ -23,21 +23,7 @@
 
       <input type="submit" value="Log-in">
   </form>
-  <!-- <h2>Register</h2>
-    <form action="" method="post">
-        <label for="newUsername">User Name:</label>
-        <input type="text" id="newUsername" name="newUsername" required>
-        
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required>
-        
-        <label for="newPassword">Password:</label>
-        <input type="password" id="newPassword" name="newPassword" required>
-
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required>
-
-        <input type="submit" value="Submit">
-    </form> -->
+  
+  <script type="module" src="./login/index.js"></script>
 </body>
 </html>

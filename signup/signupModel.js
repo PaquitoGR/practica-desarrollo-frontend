@@ -3,9 +3,9 @@ export const createUser = async (fullName, email, password) => {
   const url = 'http://localhost:8000/auth/register';
 
   const body = {
-    fullName: fullName,
-    email: email,
-    password: password
+    fullName,
+    username: email,
+    password
   };
 
   try {
@@ -28,5 +28,4 @@ export const createUser = async (fullName, email, password) => {
       throw error;
     }
   }
-
 };

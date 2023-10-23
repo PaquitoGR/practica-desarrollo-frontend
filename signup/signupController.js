@@ -1,15 +1,37 @@
 import { createUser } from "./signupModel.js";
 
 export const signupController = (signupForm) => {
-  signupForm.addEventListener('submit', (event) => {
-    event.preventDefault(); 
 
-    const fullName = signupForm.querySelector('#full-name');
-    const email = signupForm.querySelector('#email');
-    const password = signupForm.querySelector('#password');
-    const passwordConfirmation = signupForm.querySelector('#password-confirmation');
-    
-  });
+  signupForm.addEventListener('submit', (event) => validateForm(event, signupForm));
+}
+
+const validateForm = async (event, signupForm) => {
+  event.preventDefault();
+
+  const fullName = signupForm.querySelector('#full-name');
+  const email = signupForm.querySelector('#email');
+  const password = signupForm.querySelector('#password');
+  const passwordConfirmation = signupForm.querySelector('#password-confirmation');
+
+  if (isValidForm(fullName, email, password, passwordConfirmation)) {
+    try {
+      await createUser(fullName.value, email.value, password.value);
+      alert('User created');
+      setTimeout(() => {
+        window.location = "./login.html"
+      }, 1000);
+    } catch (error) {
+      alert(error);
+    }
+  }
+};
+
+const isValidForm = (fullName, email, password, passwordConfirmation) => {
+
+  const fullNameValidation = isValidFullName(fullName);
+  const emailValidation = isValidEmail(email);
+  const passwordValidation = isValidPassword(password, passwordConfirmation);
+  return fullNameValidation && emailValidation && passwordValidation;
 }
 
 const isValidFullName = (fullName) => {
