@@ -1,5 +1,6 @@
 import { loginUser } from "./loginModel.js";
-import { dispatchEvent } from '../utils/dispatchEvent.js';
+import { dispatchEvent, createCustomEvent } from '../utils/events.js';
+
 
 
 export const loginController = async (loginForm) => {

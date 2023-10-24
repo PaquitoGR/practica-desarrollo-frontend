@@ -1,6 +1,8 @@
 import { getAd } from './adDetailModel.js';
 import { showAd } from './adDetailView.js';
-import { dispatchEvent } from '../utils/dispatchEvent.js'
+import { dispatchEvent, createCustomEvent } from '../utils/events.js';
+
+
 
 export const adDetailController = async (adDetail, adId) => {
 

@@ -1,5 +1,6 @@
 import { createUser } from "./signupModel.js";
-import { dispatchEvent } from "../utils/dispatchEvent.js";
+import { dispatchEvent, createCustomEvent } from '../utils/events.js';
+
 
 export const signupController = (signupForm) => {
 
