@@ -1,4 +1,5 @@
 import { createUser } from "./signupModel.js";
+import { dispatchEvent } from "../utils/dispatchEvent.js";
 
 export const signupController = (signupForm) => {
 
@@ -14,6 +15,8 @@ const validateForm = async (event, signupForm) => {
   const passwordConfirmation = signupForm.querySelector('#password-confirmation');
 
   if (isValidForm(fullName, email, password, passwordConfirmation)) {
+
+    dispatchEvent('startSignupUser', null, signupForm);
     try {
       await createUser(fullName.value, email.value, password.value);
       alert('User created');
@@ -22,6 +25,8 @@ const validateForm = async (event, signupForm) => {
       }, 1000);
     } catch (error) {
       alert(error);
+    } finally {
+      dispatchEvent('finishSignupUser', null, signupForm);
     }
   }
 };

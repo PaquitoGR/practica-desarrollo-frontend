@@ -7,6 +7,7 @@ export const adsReelController = async (adsReel) => {
   let ads = [];
 
   dispatchEvent('startLoadingAds', null, adsReel);
+  
   try {
     ads = await getAds();
   

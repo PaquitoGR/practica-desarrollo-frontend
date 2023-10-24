@@ -1,4 +1,6 @@
 import { loginUser } from "./loginModel.js";
+import { dispatchEvent } from '../utils/dispatchEvent.js';
+
 
 export const loginController = async (loginForm) => {
 
@@ -12,6 +14,7 @@ export const loginController = async (loginForm) => {
 
 const submitLogin = async (loginForm) => {
 
+  dispatchEvent('startLoginUser', null, loginForm);
   const formData = new FormData(loginForm);
   
   try {
@@ -19,11 +22,12 @@ const submitLogin = async (loginForm) => {
     localStorage.setItem('token', jwt);
     alert("User login Successful");
 
-    setTimeout(() => {
-      window.location = './index.html';
-    }, 2000);
-
+    window.location = './index.html';
+    
   } catch (error) {
     alert(error);
+    
+  } finally {
+    dispatchEvent('finishLoginUser', null, loginForm);
   }
 }

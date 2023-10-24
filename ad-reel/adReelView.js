@@ -3,11 +3,11 @@ export const showAd = (ad) => {
   return `
     <a href="./ad-detail.html?id=${ad.id}">
       <img src="./images/no-image.jpg">
-      <p>Seller: ${ad.seller}</p>
       <p>Item: ${ad.name}</p>
       <p>Desc: ${ad.description}</p>
       <p>Price: ${ad.price}</p>
       <p>Ad type: ${ad.adType}</p>
+      <p>User: ${ad.seller}</p>
     </a>
   `;
 }
