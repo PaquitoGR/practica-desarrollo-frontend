@@ -1,9 +1,10 @@
 
-export const createAd = async (name, description, price, adType) => {
+export const createAd = async (user, name, description, price, adType) => {
   const url = 'http://localhost:8000/api/ads';
   const token = localStorage.getItem('token');
 
   const ad = {
+    username: user,
     name: name,
     description: description,
     price: price,
@@ -25,16 +26,12 @@ export const createAd = async (name, description, price, adType) => {
     if (!response.ok) {
       const data = await response.json();
       throw new Error(data.message);
-    } else {
-      alert('Ad created succesfully!')
     }
 
   } catch (error) {
     if (error.message) {
-      alert(error.message);
       throw error.message;
     } else {
-      alert(error);
       throw error;
     }
   }

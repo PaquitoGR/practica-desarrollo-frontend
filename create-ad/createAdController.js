@@ -12,12 +12,13 @@ export const createAdController = (createAdForm) => {
       const price = formData.get('price');
       const adType = formData.get('ad-type');
 
-      await createAd(name, description, price, adType);
-      alert('ad created!');
-
+      await createAd(name, description, price, adType)
+      alert('ad created successfully!');
+      
     } catch (error) {
       alert(error);
       throw error;
     }
+  
   });
 }
