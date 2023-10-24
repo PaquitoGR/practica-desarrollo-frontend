@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const session = document.getElementById('session');
   sessionController(session);
 
-  const adsReel = document.getElementById('adsReel');
+  const adsReel = document.getElementById('ads-reel');
   adsReelController(adsReel);
 
 });
