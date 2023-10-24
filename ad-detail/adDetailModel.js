@@ -12,13 +12,9 @@ const parseAd = (ad) => {
 
 export const getAd = async (adId) => {
   const url = `http://localhost:8000/api/ads/${adId}?_expand=user`;
-  let parsedAd = [];
 
   const response = await fetch(url);
   const ad = await response.json();
-  console.log(ad);
-  parsedAd = parseAd(ad);
-
-  return parsedAd;
+  
+  return parseAd(ad);
 }
-

@@ -1,10 +1,9 @@
 
-export const createAd = async (user, name, description, price, adType) => {
+export const createAd = async (name, description, price, adType) => {
   const url = 'http://localhost:8000/api/ads';
   const token = localStorage.getItem('token');
 
   const ad = {
-    username: user,
     name: name,
     description: description,
     price: price,

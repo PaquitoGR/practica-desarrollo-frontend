@@ -1,20 +1,28 @@
 import { getAds } from './adReelModel.js';
 import { showAd, noAds } from './adReelView.js';
+import { dispatchEvent } from '../utils/dispatchEvent.js';
 
 export const adsReelController = async (adsReel) => {
   adsReel.innerHTML = '';
   let ads = [];
 
-  ads = await getAds();
+  dispatchEvent('startLoadingAds', null, adsReel);
+  try {
+    ads = await getAds();
+  
+    if (ads.length === 0) {
+      adsReel.innerHTML = noAds();
+    } else {
+      alert("Ads loaded successfully");
+      renderAds(ads, adsReel);
+    }  
+  } catch (error) {
+    alert(error);
 
-  if (ads.length === 0) {
-    adsReel.innerHTML = noAds();
-  } else {
-    alert("Ads loaded successfully");
-    renderAds(ads, adsReel);
+  } finally {
+    dispatchEvent('finishLoadingAds', null, adsReel);
   }
 }
-
 
 const renderAds = (ads, adsReel) => {
   ads.forEach(ad => {

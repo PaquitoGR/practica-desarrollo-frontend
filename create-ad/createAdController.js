@@ -18,7 +18,6 @@ export const createAdController = (createAdForm) => {
     } catch (error) {
       alert(error);
       throw error;
-    }
-  
+    }  
   });
 }
