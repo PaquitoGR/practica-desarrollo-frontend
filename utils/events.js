@@ -1,7 +1,7 @@
 
 export const dispatchEvent = (eventName, data, element) => {
   const event = new CustomEvent(eventName, {
-    detail: DataTransfer
+    detail: data
   });
 
   element.dispatchEvent(event);

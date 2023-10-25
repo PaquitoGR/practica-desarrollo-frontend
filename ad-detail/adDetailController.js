@@ -11,10 +11,12 @@ export const adDetailController = async (adDetail, adId) => {
   try {
     const ad = await getAd(adId);
     adDetail.innerHTML = showAd(ad);
-    alert('Ad loaded successfully!');
+    const event = createCustomEvent('adLoaded', 'success', 'Ad loaded successfully');
+    adDetail.dispatchEvent(event);
     
   } catch (error) {
-    alert(error);
+    const event = createCustomEvent('adLoaded', 'error', 'Error while loading ad');
+    adDetail.dispatchEvent(event);
     throw error;
   
   } finally {

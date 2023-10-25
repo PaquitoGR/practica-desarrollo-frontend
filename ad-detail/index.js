@@ -1,6 +1,12 @@
 import { adDetailController } from './adDetailController.js';
 import { loaderController } from '../loader/loaderController.js';
-// import { sessionController } from '../session/sessionController.js'
+import { notificationsController } from '../notifications/notificationsController.js';
+
+const loader = document.getElementById('loader');
+const { show, hide } = loaderController(loader);
+
+const notifications = document.getElementById('notifications');
+const showNotification = notificationsController(notifications);
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -8,8 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // sessionController(session);
   const adDetail = document.getElementById('ad-detail');
 
-  const loader = document.getElementById('loader');
-  const { show, hide } = loaderController(loader);
+  adDetail.addEventListener('adLoaded', (event) => {
+    showNotification(event.detail.type, event.detail.message);
+  });
 
   adDetail.addEventListener('startLoadingAd', () => {
     show();
@@ -26,6 +33,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('offline', () => {
-  // showNotification('Conection lost', 'error');
-  alert('Oh no! Conection lost!')
+  showNotification('error', 'Conection lost');
 });

@@ -1,31 +1,40 @@
-.notification {
-  font-weight: bold;
-  border: solid 1px gray;
-  border-radius: 8px;
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  padding: 16px;
-  opacity: 0.85;
-}
 
 .notification.success {
-  background-color: rgb(125, 254, 125);
+  background-color: rgba(76, 174, 79, 0.8);
 }
 
 .notification.error {
-  background-color: rgb(255, 128, 128);
+  background-color: rgba(237, 78, 78, 0.8);
 }
 
-/* .notification {
-  display: none;
+.notification {
+  /* display: block; */
   width: 100%;
-  background-color: #4CAF50;
-  color: white;
+  color: rgb(255, 255, 255);
+  font-size: larger;
   text-align: center;
   position: fixed;
+  border-radius: 0px 0px 50% 50%;
   top: 0;
   left: 0;
   padding: 10px;
   transition: all 0.5s;
-} */
+  animation: slideDown 3s ease-in-out forwards;
+  }
+
+/* Notification animation */
+@keyframes slideDown {
+  0% {
+    top: -100px;
+  }
+  25% {
+      top: 0;
+  }
+  75% {
+    top: 0;
+}
+  100% {
+    top: -100px;
+  }
+}
+
