@@ -1,8 +1,6 @@
 import { createAd } from './createAdModel.js';
 import { dispatchEvent, createCustomEvent } from '../utils/events.js';
 
-
-
 export const createAdController = (createAdForm) => {
   
   createAdForm.addEventListener('submit', async (event) => {
@@ -17,12 +15,17 @@ export const createAdController = (createAdForm) => {
       const price = formData.get('price');
       const adType = formData.get('ad-type');
 
-      await createAd(name, description, price, adType)
-      alert('ad created successfully!');
-      window.location = '/';
+      await createAd(name, description, price, adType);
+      const event = createCustomEvent('adCreated', 'success', 'Ad created successfully');
+      createAdForm.dispatchEvent(event);
+      
+      setTimeout(() => {
+        window.location = '/';        
+      }, 3000);
       
     } catch (error) {
-      alert(error);
+      const event = createCustomEvent('adCreated', 'error', error);
+      createAdForm.dispatchEvent(event);
       throw error;
     }  finally {
       dispatchEvent('finishCreatingAd', null, createAdForm);
