@@ -1,8 +1,6 @@
 import { loginUser } from "./loginModel.js";
 import { dispatchEvent, createCustomEvent } from '../utils/events.js';
 
-
-
 export const loginController = async (loginForm) => {
 
   loginForm.addEventListener('submit', (event) => {
@@ -21,12 +19,17 @@ const submitLogin = async (loginForm) => {
   try {
     const jwt = await loginUser(formData.get('email'), formData.get('password'));
     localStorage.setItem('token', jwt);
-    alert("User login Successful");
 
-    window.location = './index.html';
+    const event = createCustomEvent('userLogin', 'success', 'You are now logged in.')
+    loginForm.dispatchEvent(event);
+
+    setTimeout(() => {
+      window.location = './index.html';
+    }, 3000);
     
   } catch (error) {
-    alert(error);
+    const event = createCustomEvent('userLogin', 'error', error);
+    loginForm.dispatchEvent(event); 
     
   } finally {
     dispatchEvent('finishLoginUser', null, loginForm);

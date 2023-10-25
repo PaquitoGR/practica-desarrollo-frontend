@@ -1,12 +1,20 @@
 import { loginController } from "./loginController.js";
 import { loaderController } from "../loader/loaderController.js";
+import { notificationsController } from "../notifications/notificationsController.js";
 
 const loader = document.getElementById('loader');
 const { show, hide } = loaderController(loader);
 
+const notifications = document.getElementById('notifications');
+const showNotification = notificationsController(notifications);
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const loginForm = document.querySelector('#login-form');
+
+  loginForm.addEventListener('userLogin', (event) => {
+    showNotification(event.detail.type, event.detail.message);
+  });
 
   loginForm.addEventListener('startLoginUser', () => {
     show();
@@ -16,4 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   loginController(loginForm);
+});
+
+window.addEventListener('offline', () => {
+  showNotification('error', 'Conection lost');
 });

@@ -8,17 +8,25 @@ const { show, hide } = loaderController(loader);
 const notifications = document.getElementById('notifications');
 const showNotification = notificationsController(notifications);
 
-const signupForm = document.querySelector('#signup-form');
+document.addEventListener('DOMContentLoaded', () => {
+    
+  const signupForm = document.querySelector('#signup-form');
 
-signupForm.addEventListener('userSignup', (event) => {
-  showNotification(event.detail.type, event.detail.message);
+  signupForm.addEventListener('userSignup', (event) => {
+    showNotification(event.detail.type, event.detail.message);
+  });
+
+  signupForm.addEventListener('startSignupUser', () => {
+    show();
+  });
+  signupForm.addEventListener('finishSignupUser', () => {
+    hide();
+  });
+
+  signupController(signupForm);
 });
 
-signupForm.addEventListener('startSignupUser', () => {
-  show();
-});
-signupForm.addEventListener('finishSignupUser', () => {
-  hide();
+window.addEventListener('offline', () => {
+  showNotification('error', 'Conection lost');
 });
 
-signupController(signupForm);

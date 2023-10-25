@@ -5,8 +5,7 @@ export const loginUser = async (email, password) => {
   const body = {
     username: email,
     password: password
-  }
-  
+  }  
 
   let response;
   try {
@@ -27,10 +26,8 @@ export const loginUser = async (email, password) => {
     
   } catch (error) {
     if (error.message) {
-      alert(error.message);
       throw error.message;
     } else {
-      alert(error);
       throw error;
     }
   }

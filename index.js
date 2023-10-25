@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   adsReelController(adsReel);
-
 });
 
 window.addEventListener('offline', () => {
