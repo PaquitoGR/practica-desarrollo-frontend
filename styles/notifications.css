@@ -1,10 +1,10 @@
 
 .notification.success {
-  background-color: rgba(76, 174, 79, 0.8);
+  background-color: rgba(76, 174, 79, 0.9);
 }
 
 .notification.error {
-  background-color: rgba(237, 78, 78, 0.8);
+  background-color: rgba(237, 78, 78, 0.9);
 }
 
 .notification {
@@ -20,6 +20,7 @@
   padding: 10px;
   transition: all 0.5s;
   animation: slideDown 3s ease-in-out forwards;
+  z-index: 1001;
   }
 
 /* Notification animation */

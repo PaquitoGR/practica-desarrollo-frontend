@@ -6,37 +6,51 @@
   <link rel="icon" type="image/x-icon" href="./images/Keepop-icon.ico" />
   <link rel="stylesheet" href="./styles/normalize.css" />
   <link rel="stylesheet" href="./styles/common.css" />
+  <link rel="stylesheet" href="./styles/header.css" />
   <link rel="stylesheet" href="./styles/loader.css" />
   <link rel="stylesheet" href="./styles/notifications.css" />
   <title>KeePoP Signup</title>
 </head>
 <body>
   <header>
-    <a href="/">
-      <h1>KeePoP</h1>
-    </a>
+    <div class="header__items">
+      <div class="header__image">
+        <a href="/"><img src="./images/Keepop-logo.png" alt="logo keepop"></a>     
+      </div>
+      <div class="header__section">  
+          <h2>Join KeePoP</h2>
+      </div>
+      <div class="header__nav">
+          <div class="nav-wrapper">
+              <nav id="session"></nav>
+          </div>
+      </div>
+  </div>
   </header>
-  <h2>Join KeePoP</h2>
+  <main>
 
-  <section id="loader"></section>
-  <section id="notifications"></section>
-  
-  <form id="signup-form" >
-    <label for="full-name">Full name:</label>
-    <input type="text" id="full-name" required />
+    <section id="loader"></section>
+    <section id="notifications"></section>
     
-    <label for="email">Email:</label>
-    <input type="email" id="email" required />
-    
-    <label for="password">Password:</label>
-    <input type="password" id="password" minlength="6" required />
-
-    <label for="password-confirmation">Confirm Password:</label>
-    <input type="password" id="password-confirmation" minlength="6" required />
-
-    <button type="submit">Create an account</button>
-  </form>
-  
-  <script type="module" src="./signup/index.js"></script>
+    <form id="signup-form" >
+      <label for="full-name">Full name:</label>
+      <input type="text" id="full-name" required />
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" minlength="6" required />
+      
+      <label for="password-confirmation">Confirm Password:</label>
+      <input type="password" id="password-confirmation" minlength="6" required />
+      
+      <button type="submit">Create an account</button>
+    </form>
+  </main>
+  <footer>
+    <h1>footer</h1>
+  </footer>
+    <script type="module" src="./signup/index.js"></script>
 </body>
 </html>

@@ -6,20 +6,30 @@
   <link rel="icon" type="image/x-icon" href="./images/Keepop-icon.ico" />
   <link rel="stylesheet" href="./styles/normalize.css" />
   <link rel="stylesheet" href="./styles/common.css" />
+  <link rel="stylesheet" href="./styles/header.css" />
   <link rel="stylesheet" href="./styles/loader.css" />
   <link rel="stylesheet" href="./styles/notifications.css" />
   <title>KeePoP Log-in</title>
 </head>
 <body>
   <header>
-    <a href="/">
-      <h1>KeePoP</h1>
-    </a>
-  </header>
-  <h2>Log-In</h2>
-
-  <section id="loader"></section>
+    <div class="header__items">
+      <div class="header__image">
+        <a href="/"><img src="./images/Keepop-logo.png" alt="logo keepop"></a>       
+      </div>
+      <div class="header__section">  
+        <h2>User Login</h2>
+      </div>
+      <div class="header__nav">
+        <div class="nav-wrapper">
+          <nav id="session"></nav>
+        </div>
+      </div>
+    </div>
+  </header> 
+  
   <section id="notifications"></section>
+  <section id="loader"></section>
 
   <form id="login-form">
       <label for="email">User Name (email):</label>

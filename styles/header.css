@@ -1,23 +1,36 @@
-.header {
+header {
   position: sticky;
-  height: 150px;
+  background-color: white;
   z-index: 999;
   top: 0;
-  padding: 10px 0px;
-  opacity: 0.9;  
+  left: 0;
+  right: 0;
+  opacity: 0.9;
+  border-bottom: 1px solid;
+  border-color: #00b27a;
+  transition: top .15s ease;
 }
 
-.header .header__items {
+header .header__items {
   display: flex;
+  justify-content: space-between;
   padding: 20px;
 }
 
 .header__image img {
+  width: 75px;
   border-radius: 5px;
-  width: 50px;
 }
 
 .header__items > div {
-  width: 50%;
+  width: 30%;
 }
 
+.header__nav {
+  display: flex;
+  justify-content: right;
+}
+
+.header__section {
+  text-align: center;
+}

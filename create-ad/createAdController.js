@@ -2,12 +2,21 @@ import { createAd } from './createAdModel.js';
 import { dispatchEvent, createCustomEvent } from '../utils/events.js';
 
 export const createAdController = (createAdForm) => {
+
+  const token = localStorage.getItem('token');
+  if (!token) {
+    dispatchEvent('startCreatingAd', null, createAdForm);
+    const event = createCustomEvent('adCreated', 'error', 'Sorry, you need to be logged to create an ad');
+    createAdForm.dispatchEvent(event);      
+    setTimeout(() => {
+      dispatchEvent('finishCreatingAd', null, createAdForm);
+      window.location = '/';
+    }, 3000);
+  }  
   
   createAdForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    dispatchEvent('startCreatingAd', null, createAdForm);
-    
     try {
       const formData = new FormData(createAdForm);
       const name = formData.get('name');
