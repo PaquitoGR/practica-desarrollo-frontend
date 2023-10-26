@@ -8,26 +8,29 @@ export const signupController = (signupForm) => {
 
 const validateForm = async (event, signupForm) => {
   event.preventDefault();
+  dispatchEvent('startSignupUser', null, signupForm);
 
   const fullName = signupForm.querySelector('#full-name');
   const email = signupForm.querySelector('#email');
   const password = signupForm.querySelector('#password');
   const passwordConfirmation = signupForm.querySelector('#password-confirmation');
 
-  dispatchEvent('startSignupUser', null, signupForm);
   try {
     if (isValidForm(fullName, email, password, passwordConfirmation)) {
       await createUser(fullName.value, email.value, password.value);
       const event = createCustomEvent('userSignup', 'success', 'User created successfully');
       signupForm.dispatchEvent(event);
-  
+      
+      saveUserData(email.value, password.value);
       setTimeout(() => {
-        window.location = "./login.html";
+        window.location = `./login.html`;
       }, 3000);
     }
 
   } catch (error) {
-    dispatchEvent('userSignup', {type: 'error', message: error}, signupForm);
+    const event = createCustomEvent('userSignup', 'error', 'Sorry, error creating user.');
+    signupForm.dispatchEvent(event);
+    throw error;
 
     } finally {
       dispatchEvent('finishSignupUser', null, signupForm);
@@ -45,7 +48,7 @@ const isValidForm = (fullName, email, password, passwordConfirmation) => {
 
 const isValidFullName = (fullName) => {
   let result = true;
-  const fullNameRegExp = new RegExp(/^(?:\w+ ){1,2}\w+$/);
+  const fullNameRegExp = new RegExp(/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñÇç ]+$/);
 
   if (!fullNameRegExp.test(fullName.value)) {
     result = false;
@@ -76,4 +79,11 @@ const isValidPassword = (password, passwordConfirmation) => {
   }
 
   return result;
+}
+
+const saveUserData = (userName, password) => {
+  
+  localStorage.setItem("savedUserName", userName);
+  const encryptPassword = btoa(password);
+  localStorage.setItem("savedPassword", encryptPassword);
 }

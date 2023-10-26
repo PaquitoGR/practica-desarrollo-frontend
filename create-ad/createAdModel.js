@@ -1,7 +1,8 @@
+import { sparrest } from "../utils/sparrestApi.js";
 
 export const createAd = async (name, description, price, adType) => {
-  const url = 'http://localhost:8000/api/ads';
-  const token = localStorage.getItem('token');
+  
+  const endpoint = 'api/ads';
 
   const ad = {
     name: name,
@@ -9,29 +10,6 @@ export const createAd = async (name, description, price, adType) => {
     price: price,
     adType: adType
   }
-  
-  let response;
 
-  try {
-    response = await fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(ad),
-      headers: {
-        'Content-type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      }
-    });
-
-    if (!response.ok) {
-      const data = await response.json();
-      throw new Error(data.message);
-    }
-
-  } catch (error) {
-    if (error.message) {
-      throw error.message;
-    } else {
-      throw error;
-    }
-  }
+  await sparrest().postAd(endpoint, ad);
 }

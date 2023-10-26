@@ -14,13 +14,12 @@ export const adsReelController = async (adsReel) => {
     if (ads.length === 0) {
       adsReel.innerHTML = noAds();
     } else {
-      renderAds(ads, adsReel);
-      
-      const event = createCustomEvent('adsLoaded', 'success', 'Ads loaded successfully');
-      adsReel.dispatchEvent(event);
+      renderAds(ads, adsReel);      
+      // const event = createCustomEvent('adsLoaded', 'success', 'Ads loaded successfully');
+      // adsReel.dispatchEvent(event);
     }  
   } catch (error) {
-    const event = createCustomEvent('adsLoaded', 'error', error);
+    const event = createCustomEvent('adsLoaded', 'error', 'Oh no, Something went wrong.');
     adsReel.dispatchEvent(event);
 
   } finally {

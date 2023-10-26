@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   adDetail.addEventListener('adLoaded', (event) => {
     showNotification(event.detail.type, event.detail.message);
   });
+  adDetail.addEventListener('adDeleted', (event) => {
+    showNotification(event.detail.type, event.detail.message);
+  });
 
   adDetail.addEventListener('startLoadingAd', () => {
     show();
@@ -29,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const adId = params.get('id');
 
   adDetailController(adDetail, adId);
-
 });
 
 window.addEventListener('offline', () => {

@@ -24,7 +24,7 @@ export const createAdController = (createAdForm) => {
       }, 3000);
       
     } catch (error) {
-      const event = createCustomEvent('adCreated', 'error', error);
+      const event = createCustomEvent('adCreated', 'error', "Sorry, ad could't be created.");
       createAdForm.dispatchEvent(event);
       throw error;
     }  finally {
