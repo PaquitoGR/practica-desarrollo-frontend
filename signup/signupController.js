@@ -28,7 +28,7 @@ const validateForm = async (event, signupForm) => {
     }
 
   } catch (error) {
-    const event = createCustomEvent('userSignup', 'error', 'Sorry, error creating user.');
+    const event = createCustomEvent('userSignup', 'error', error);
     signupForm.dispatchEvent(event);
     throw error;
 
@@ -81,9 +81,9 @@ const isValidPassword = (password, passwordConfirmation) => {
   return result;
 }
 
-const saveUserData = (userName, password) => {
-  
-  localStorage.setItem("savedUserName", userName);
+// Saves login data in the sessionStorage, so it can be loaded in the login fields
+const saveUserData = (userName, password) => {  
+  sessionStorage.setItem("savedUserName", userName);
   const encryptPassword = btoa(password);
-  localStorage.setItem("savedPassword", encryptPassword);
+  sessionStorage.setItem("savedPassword", encryptPassword);
 }

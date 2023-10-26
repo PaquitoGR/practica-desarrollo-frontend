@@ -2,20 +2,14 @@ import { loginUser } from "./loginModel.js";
 import { dispatchEvent, createCustomEvent } from '../utils/events.js';
 
 export const loginController = async (loginForm) => {
-
-  if (loadUserData().userName) {
-    document.getElementById('email').value = loadUserData().userName;
-    document.getElementById('password').value = atob(loadUserData().password);
-    localStorage.removeItem('savedUserName');
-    localStorage.removeItem('savedPassword');
-  }
+  
+  loadUserData();  
 
   loginForm.addEventListener('submit', (event) => {
     event.preventDefault();    
 
     submitLogin(loginForm);
   });
-
 }
 
 const submitLogin = async (loginForm) => {
@@ -47,9 +41,17 @@ const submitLogin = async (loginForm) => {
   }
 }
 
+// If there is login information in the sessionStorage, transfers it to the login fields
+// then cleans the sessionStorage
 const loadUserData = () => {
-  const userName = localStorage.getItem('savedUserName');
-  const password = localStorage.getItem('savedPassword');
+  if (sessionStorage.getItem('userName')) {
+    const userName = sessionStorage.getItem('savedUserName');
+    const password = sessionStorage.getItem('savedPassword');
 
-  return { userName, password };
+    document.getElementById('email').value = userName;
+    document.getElementById('password').value = atob(password);
+
+    sessionStorage.removeItem('savedUserName');
+    sessionStorage.removeItem('savedPassword');
+  }
 }
