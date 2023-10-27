@@ -10,51 +10,59 @@
   <link rel="stylesheet" href="./styles/header.css" />
   <link rel="stylesheet" href="./styles/loader.css" />
   <link rel="stylesheet" href="./styles/notifications.css" />
-  <title>KeePoP Create Ad</title>
+  <link rel="stylesheet" href="./styles/forms.css" />
+  <title>KeePoP Create ad</title>
 </head>
 <body>
   <header>
     <div class="header__items">
       <div class="header__image">
-        <a href="/"><img src="./images/Keepop-logo.png" alt="logo keepop"></a>       
+        <a href="/"><img src="./images/Keepop-logo.png" alt="logo keepop"></a> 
       </div>
       <div class="header__section">  
-          <h2>Create Ad</h2>
+        <h2>Create ad</h2>
       </div>
-      <div class="header__nav">
-          <div class="nav-wrapper">
-              <nav id="session"></nav>
-          </div>
+      <div class="header__nav">         
+        <nav id="session"></nav>        
       </div>
-  </div>
+    </div>
   </header>
-  
-  <section id="loader"></section>
-  <section id="notifications"></section>
-
-  <form id="create-ad-form" >
-    <label for="name">Item name:</label>
-    <input type="text" name="name" id="name" required />
+  <main class="create-ad-main">
+    <section id="loader"></section>
+    <section id="notifications"></section> 
     
-    <label for="description">Description:</label>
-    <textarea name="description" id="description" cols="30" rows="6" required></textarea>
-    
-    <label for="price">Price:</label>
-    <input type="number" name="price" step="0.01" size="6" id="price" min=0 required />
-    
-    <label for="sale">Sale</label>
-    <input type="radio" class="radio" name="ad-type" id="sale" value="Sale" checked />
-    <label for="buy">Buy</label>
-    <input type="radio" class="radio" name="ad-type" id="buy" value="Buy">
-    
-    <label for="image">Image</label>
-    <label for="image" class="custom-image-upload">Browse...</label>
-    <input type="file" id="image" name="image" accept="image/*">
-    
-    <button type="submit">Upload your Ad</button>
-    <button type="reset">Clear form</button>
-  </form>
-  
+    <div class="form-container">
+      <form id="create-ad-form" >
+        <div class="form-row">
+          <label for="name">Item name:</label>
+          <input type="text" name="name" id="name" required />
+        </div>
+        <div class="form-row">
+          <label for="description">Description:</label>
+          <textarea name="description" id="description" cols="30" rows="6" required></textarea>
+        </div>
+        <div class="form-row">
+          <label for="price">Price:</label>
+          <input type="number" name="price" step="0.01" size="6" id="price" min=0 required />
+        </div>
+        <div class="form-row radio">
+          <label for="sale">Sale</label>
+          <input type="radio" class="radio" name="ad-type" id="sale" value="Sale" checked />
+          <label for="buy">Buy</label>
+          <input type="radio" class="radio" name="ad-type" id="buy" value="Buy">
+        </div>
+        <div class="form-row">
+          <label for="image">Image</label>
+          <label for="image" class="custom-image-upload">Browse...</label>
+          <input type="file" id="image" name="image" accept="image/*">
+        </div>
+        <div class="form-row">
+          <button type="submit">Upload your Ad</button>
+          <button type="reset">Clear form</button>
+        </div>        
+      </form>
+    </div>    
+  </main>
   <script type="module" src="./create-ad/index.js"></script>
-</body>
-</html>
+  </body>
+  </html>

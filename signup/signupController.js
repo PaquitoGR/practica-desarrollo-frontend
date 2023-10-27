@@ -17,14 +17,17 @@ const validateForm = async (event, signupForm) => {
 
   try {
     if (isValidForm(fullName, email, password, passwordConfirmation)) {
-      await createUser(fullName.value, email.value, password.value);
+
+      const emailToLowerCase = email.value.toLowerCase();
+
+      await createUser(fullName.value, emailToLowerCase, password.value);
       const event = createCustomEvent('userSignup', 'success', 'User created successfully');
       signupForm.dispatchEvent(event);
       
-      saveUserData(email.value, password.value);
+      saveUserData(emailToLowerCase, password.value);
       setTimeout(() => {
         window.location = `./login.html`;
-      }, 3000);
+      }, 2500);
     }
 
   } catch (error) {

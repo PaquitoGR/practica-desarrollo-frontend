@@ -6,6 +6,9 @@ main {
   margin: 0;
 }
 
+main.create-ad-main {
+  height: 80vh;
+}
 .form-container {
   color: var(--main-brand-color);
 }

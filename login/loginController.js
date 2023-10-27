@@ -29,10 +29,14 @@ const submitLogin = async (loginForm) => {
 
     setTimeout(() => {
       window.location = './index.html';
-    }, 3000);
+    }, 2500);
     
   } catch (error) {
-    const event = createCustomEvent('userLogin', 'error', 'Sorry, login error.');
+    let message = 'Wrong username/password'
+    if (error !== message) {
+      message = 'Sorry, login failed.'
+    }
+    const event = createCustomEvent('userLogin', 'error', message);
     loginForm.dispatchEvent(event);
     throw error;
     
@@ -44,7 +48,7 @@ const submitLogin = async (loginForm) => {
 // If there is login information in the sessionStorage, transfers it to the login fields
 // then cleans the sessionStorage
 const loadUserData = () => {
-  if (sessionStorage.getItem('userName')) {
+  if (sessionStorage.getItem('savedUserName')) {
     const userName = sessionStorage.getItem('savedUserName');
     const password = sessionStorage.getItem('savedPassword');
 
