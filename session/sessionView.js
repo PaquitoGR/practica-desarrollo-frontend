@@ -1,11 +1,11 @@
 export const loggedSession = () => {
   return `
-    <ul class="">
-      <li class="">
-        <a class="btn" href="./create-ad.html">Create Ad</a>
+    <ul class="nav_list">
+      <li class="btn" >
+        <a href="./create-ad.html">Create Ad</a>
       </li>
-      <li class="">
-        <a class="btn" id="close-session">Close session</a>
+      <li class="btn" >
+        <a href="" id="close-session">Close session</a>
       </li>
     </ul>
   `;
@@ -13,12 +13,12 @@ export const loggedSession = () => {
 
 export const defaultSession = () => {
   return `
-    <ul class="">
-      <li class="">
-        <a class="btn" href="./signup.html">Singup</a>
+    <ul class="nav_list">
+      <li class="btn" >
+        <a href="./signup.html">Singup</a>
       </li>
-      <li class="">
-        <a class="btn" href="./login.html">Login</a>
+      <li class="btn" >
+        <a href="./login.html">Login</a>
       </li>
     </ul>
   `;

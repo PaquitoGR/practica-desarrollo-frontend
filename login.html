@@ -4,43 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="./images/Keepop-icon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles/normalize.css" />
   <link rel="stylesheet" href="./styles/common.css" />
   <link rel="stylesheet" href="./styles/header.css" />
   <link rel="stylesheet" href="./styles/loader.css" />
   <link rel="stylesheet" href="./styles/notifications.css" />
+  <link rel="stylesheet" href="./styles/login.css" />
   <title>KeePoP Log-in</title>
 </head>
 <body>
   <header>
     <div class="header__items">
       <div class="header__image">
-        <a href="/"><img src="./images/Keepop-logo.png" alt="logo keepop"></a>       
+        <a href="/"><img src="./images/Keepop-logo.png" alt="logo keepop"></a> 
       </div>
       <div class="header__section">  
-        <h2>User Login</h2>
+        <h2>Log in</h2>
       </div>
-      <div class="header__nav">
-        <div class="nav-wrapper">
-          <nav id="session"></nav>
-        </div>
+      <div class="header__nav">         
+        <nav id="session"></nav>        
       </div>
     </div>
-  </header> 
-  
-  <section id="notifications"></section>
-  <section id="loader"></section>
+  </header>
+  <main>    
+    <section id="notifications"></section>
+    <section id="loader"></section>
 
-  <form id="login-form">
-      <label for="email">User Name (email):</label>
-      <input type="email" id="email" name="email" required />
-      
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" minlength="6" required />
-
-      <input type="submit" value="Log-in">
-  </form>
-  
-  <script type="module" src="./login/index.js"></script>
+    <div class="form-container">
+      <form id="login-form">
+        <div class="form-row">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-row">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" minlength="6" required />
+        </div>
+        <div class="form-row submit">
+          <input type="submit" value="Log-in">
+        </div>
+      </div>
+    </form>
+    
+    <script type="module" src="./login/index.js"></script>
+  </main>
 </body>
 </html>

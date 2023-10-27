@@ -15,8 +15,7 @@ export const adsReelController = async (adsReel) => {
       adsReel.innerHTML = noAds();
     } else {
       renderAds(ads, adsReel);      
-      // const event = createCustomEvent('adsLoaded', 'success', 'Ads loaded successfully');
-      // adsReel.dispatchEvent(event);
+      
     }  
   } catch (error) {
     const event = createCustomEvent('adsLoaded', 'error', 'Oh no, Something went wrong.');
@@ -30,7 +29,7 @@ export const adsReelController = async (adsReel) => {
 const renderAds = (ads, adsReel) => {
   ads.forEach(ad => {
     const adDiv = document.createElement('div');
-    adDiv.classList.add('ad');
+    adDiv.classList.add('ad-card');
     adDiv.innerHTML = showAd(ad);
     adsReel.appendChild(adDiv);
   });

@@ -1,6 +1,6 @@
 
 .notification.success {
-  background-color: rgba(76, 174, 79, 0.9);
+  background-color: rgba(0, 206, 141, 0.9);
 }
 
 .notification.error {
@@ -10,7 +10,7 @@
 .notification {
   /* display: block; */
   width: 100%;
-  color: rgb(255, 255, 255);
+  color: var(--main-bg-color);
   font-size: larger;
   text-align: center;
   position: fixed;

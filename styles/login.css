@@ -1,0 +1,34 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  margin: 0;
+}
+
+.form-container {
+  color: var(--main-brand-color);
+}
+
+.form-container > form {
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: var(--main-brand-color);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+input {
+  color: var(--main-brand-color);
+}
+
+.submit {
+  margin-top: 20px;
+}
