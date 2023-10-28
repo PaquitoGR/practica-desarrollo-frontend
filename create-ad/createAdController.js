@@ -6,7 +6,7 @@ export const createAdController = (createAdForm) => {
   const token = localStorage.getItem('token');
   if (!token) {
     dispatchEvent('startCreatingAd', null, createAdForm);
-    const event = createCustomEvent('adCreated', 'error', 'Sorry, you need to be logged to create an ad');
+    const event = createCustomEvent('adCreated', 'error', 'Sorry, you need to be logged to be here');
     createAdForm.dispatchEvent(event);      
     setTimeout(() => {
       dispatchEvent('finishCreatingAd', null, createAdForm);
@@ -36,7 +36,7 @@ export const createAdController = (createAdForm) => {
       const event = createCustomEvent('adCreated', 'error', "Sorry, ad could't be created.");
       createAdForm.dispatchEvent(event);
       throw error;
-    }  finally {
+    } finally {
       dispatchEvent('finishCreatingAd', null, createAdForm);
     }
   });

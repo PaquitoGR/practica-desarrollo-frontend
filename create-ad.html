@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="./images/Keepop-icon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles/normalize.css" />
   <link rel="stylesheet" href="./styles/common.css" />
   <link rel="stylesheet" href="./styles/create-ad.css" />
@@ -41,15 +44,21 @@
           <label for="description">Description:</label>
           <textarea name="description" id="description" cols="30" rows="6" required></textarea>
         </div>
-        <div class="form-row">
-          <label for="price">Price:</label>
-          <input type="number" name="price" step="0.01" size="6" id="price" min=0 required />
-        </div>
-        <div class="form-row radio">
-          <label for="sale">Sale</label>
-          <input type="radio" class="radio" name="ad-type" id="sale" value="Sale" checked />
-          <label for="buy">Buy</label>
-          <input type="radio" class="radio" name="ad-type" id="buy" value="Buy">
+        <div class="form-row price">
+          <div>
+            <label for="price">Price:</label>
+            <input type="number" name="price" step="0.01" size="6" id="price" min=0 required />
+          </div>
+          <div class="radio">
+            <div class="radio__sale">
+              <label for="sale">Sale</label>
+              <input type="radio" name="ad-type" id="sale" value="Sale" checked />
+            </div>
+            <div class="radio__buy">
+              <label for="buy">Buy</label>
+              <input type="radio" name="ad-type" id="buy" value="Buy">
+            </div>
+          </div>
         </div>
         <div class="form-row">
           <label for="image">Image</label>
@@ -57,8 +66,8 @@
           <input type="file" id="image" name="image" accept="image/*">
         </div>
         <div class="form-row">
-          <button type="submit">Upload your Ad</button>
           <button type="reset">Clear form</button>
+          <button type="submit">Upload your Ad</button>
         </div>        
       </form>
     </div>    

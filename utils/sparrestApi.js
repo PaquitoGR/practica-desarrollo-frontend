@@ -136,11 +136,41 @@ export const sparrest = () => {
     }
   }
 
+  const updateAd = async (endpoint, ad) => {
+    const url = baseUrl + endpoint;
+    const token = localStorage.getItem('token');
+
+    let response;
+    try {
+      response = await fetch(url, {
+        method: 'PATCH',
+        body: JSON.stringify(ad),
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        const message = data.message || "Sorry, ad couldn't be updated";
+        throw new Error(message);
+      }
+    } catch (error) {
+      if (error.message) {
+        throw error.message;
+      } else {
+        throw error;
+      }
+    }
+  }
+
   return {
     get,
     loginUser,
     signupUser,
     postAd,
-    removeAd
+    removeAd,
+    updateAd
   }
 }

@@ -1,7 +1,8 @@
-import { adDetailController } from './adDetailController.js';
+import { adEditController } from './adEditController.js';
 import { loaderController } from '../loader/loaderController.js';
 import { notificationsController } from '../notifications/notificationsController.js';
 import { sessionController } from '../session/sessionController.js'
+
 
 const loader = document.getElementById('loader');
 const { show, hide } = loaderController(loader);
@@ -14,26 +15,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const session = document.getElementById('session');
   sessionController(session);
   
-  const adDetail = document.getElementById('ad-detail');
-
-  adDetail.addEventListener('adLoaded', (event) => {
-    showNotification(event.detail.type, event.detail.message);
-  });
-  adDetail.addEventListener('adDeleted', (event) => {
-    showNotification(event.detail.type, event.detail.message);
-  });
-
-  adDetail.addEventListener('startLoadingAd', () => {
-    show();
-  });
-  adDetail.addEventListener('finishLoadingAd', () => {
-    hide();
-  });
+  const adEditForm = document.getElementById('ad-edit-form');
 
   const params = new URLSearchParams(window.location.search);
   const adId = params.get('id');
 
-  adDetailController(adDetail, adId);
+  adEditController(adEditForm, adId);
+
+  adEditForm.addEventListener('adEdited', (event) => {
+    showNotification(event.detail.type, event.detail.message);
+  });
+
+  adEditForm.addEventListener('startSavingAd', () => {
+    show();
+  });
+  adEditForm.addEventListener('finishSavingAd', () => {
+    hide();
+  });
+
+
 });
 
 window.addEventListener('offline', () => {

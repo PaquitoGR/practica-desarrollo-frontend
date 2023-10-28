@@ -25,6 +25,7 @@ header {
 .header__section {
   text-align: center;
   color: var(--main-brand-color);
+  align-self: center;
 }
 
 

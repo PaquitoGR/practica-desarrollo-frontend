@@ -6,9 +6,10 @@ main {
   margin: 0;
 }
 
-main.create-ad-main {
+main.create-ad-main, main.edit-ad-main, main.ad-detail-main {
   height: 80vh;
 }
+
 .form-container {
   color: var(--main-brand-color);
 }
@@ -34,4 +35,17 @@ input {
 
 .submit {
   margin-top: 20px;
+}
+
+.radio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }

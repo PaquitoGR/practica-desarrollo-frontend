@@ -11,7 +11,7 @@ export const adDetailController = async (adDetail, adId) => {
   try {
     const ad = await getAd(adId);
     adDetail.innerHTML = showAd(ad);
-    deleteButton(ad, adDetail);
+    userButtons(ad, adDetail);
     
   } catch (error) {
     const event = createCustomEvent('adLoaded', 'error', 'Error while loading ad');
@@ -24,33 +24,48 @@ export const adDetailController = async (adDetail, adId) => {
   }  
 }
 
-const deleteButton = (ad, adDetail) => {
+const userButtons = (ad, adDetail) => {
   const token = localStorage.getItem('token');
   if (token) {
     const stringifiedToken = atob(token.split(".")[1]);
     const user = JSON.parse(stringifiedToken);
     
     if (user.userId === ad.userId) {
-      showDeleteButton(ad, adDetail);
+      showUserButtons(ad, adDetail);
     }
   }
 }
 
-const showDeleteButton = (ad, adDetail) => {
+const showUserButtons = (ad, adDetail) => {
   const deleteButton = document.createElement('button');
-  deleteButton.textContent = 'Delete ad';
-  deleteButton.addEventListener('click', async() => {
+  const editButton = document.createElement('button');
 
-    dispatchEvent('startLoadingAd', null, adDetail);
-    
-    if (confirm('Are you sure you want to delete this ad?')) {      
-      await deleteAd(ad.id);      
-      const event = createCustomEvent('adDeleted', 'success', 'Ad successfully deleted.');
-      adDetail.dispatchEvent(event);  
-      window.location = '/';   
-    }
-    dispatchEvent('finishLoadingAd', null, adDetail);
-  })
+  deleteButton.textContent = 'Delete';
+  editButton.textContent = 'Edit'
+
+  deleteButton.addEventListener('click', () => {
+    removeAd(ad, adDetail);
+  });
+  editButton.addEventListener('click', () => {
+    editAd(ad);
+  });
 
   adDetail.appendChild(deleteButton);
+  adDetail.appendChild(editButton);
 }
+
+const removeAd = async (ad, adDetail) => {
+  dispatchEvent('startLoadingAd', null, adDetail);
+    
+  if (confirm('Are you sure you want to delete this ad?')) {      
+    await deleteAd(ad.id);      
+    const event = createCustomEvent('adDeleted', 'success', 'Ad successfully deleted.');
+    adDetail.dispatchEvent(event);  
+    window.location = '/';   
+  }
+  dispatchEvent('finishLoadingAd', null, adDetail);
+}
+
+const editAd = async (ad) => {
+  window.location = `/ad-edit.html?id=${ad.id}`
+};

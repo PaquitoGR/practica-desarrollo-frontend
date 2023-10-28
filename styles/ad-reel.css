@@ -3,7 +3,7 @@ main {
   justify-content: center;
 }
 
-main > #ads-reel {
+main > #ads-reel, #ad-detail {
   display: flex;
   flex-wrap: wrap;
   max-width: 90%;
@@ -14,8 +14,6 @@ main > #ads-reel {
 img {
   max-width: 200px;
 }
-
-
 
 .ad-card {
   width: 300px;
