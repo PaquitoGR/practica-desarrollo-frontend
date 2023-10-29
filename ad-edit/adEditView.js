@@ -49,7 +49,7 @@ export const showAdForm = (ad) => {
   </div>
   <div class="form-row">
     <label for="imageUrl">Image</label>
-    <input type="url" id="imageUrl" name="imageUrl" value="${image}" >
+    <input type="text" id="imageUrl" name="imageUrl" value="${image}" >
   </div>
   <div class="form-row">
     <button type="submit">Update Ad</button>

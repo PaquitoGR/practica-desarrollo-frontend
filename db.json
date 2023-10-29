@@ -1,0 +1,160 @@
+{
+  "users": [
+    {
+      "fullName": "Francisco Suárez",
+      "username": "paquito@chocolatero.es",
+      "password": "$2b$10$ckWLLXHazrBfoyYD4O7k.uo28CbYKNQzz5nAWXmV43W78/OVXXPsm",
+      "id": 1
+    },
+    {
+      "fullName": "María Pertíñez Arriaga",
+      "username": "maritxu@onmail.com",
+      "password": "$2b$10$ckWLLXHazrBfoyYD4O7k.uo28CbYKNQzz5nAWXmV43W78/OVXXPsm",
+      "id": 2
+    },
+    {
+      "fullName": "Mary Perkins",
+      "username": "mary.perk@gmail.ru",
+      "password": "$2b$10$ckWLLXHazrBfoyYD4O7k.uo28CbYKNQzz5nAWXmV43W78/OVXXPsm",
+      "id": 3
+    },
+    {
+      "fullName": "Aitor Menta",
+      "username": "aitorin@msn.com",
+      "password": "$2b$10$ckWLLXHazrBfoyYD4O7k.uo28CbYKNQzz5nAWXmV43W78/OVXXPsm",
+      "id": 4
+    }
+  ],
+  "ads": [
+    {
+      "name": "Toy Robot",
+      "description": "A classic toy robot. A mechanical toy that typically resembles a humanoid or robotic figure. ",
+      "price": "12.95",
+      "adType": "Sale",
+      "imageUrl": "/images/keepop-toy.jpg",
+      "userId": 1,
+      "updatedAt": "2023-10-29T20:23:34.159Z",
+      "id": 1
+    },
+    {
+      "name": "Electric Car",
+      "description": "A modern electric car. A cutting-edge, environmentally friendly vehicle powered solely by electricity, eliminating the need for gasoline. ",
+      "price": "35000",
+      "adType": "Sale",
+      "imageUrl": "/images/keepop-car.jpg",
+      "userId": 1,
+      "updatedAt": "2023-10-29T20:25:09.312Z",
+      "id": 2
+    },
+    {
+      "name": "Classic NES console",
+      "description": "I am looking for a classic Nintendo NES console, preferably with two controllers.",
+      "price": "65.50",
+      "adType": "Buy",
+      "imageUrl": "/images/keepop-console.jpg",
+      "userId": 1,
+      "updatedAt": "2023-10-29T20:27:06.721Z",
+      "id": 3
+    },
+    {
+      "name": "Iphone ",
+      "description": "I'm looking for the latest iPhone model, it's essential that it includes a charger and a screen protector.",
+      "price": "195",
+      "adType": "Buy",
+      "imageUrl": "/images/keepop-iphone.jpg",
+      "userId": 1,
+      "updatedAt": "2023-10-29T20:29:32.145Z",
+      "id": 4
+    },
+    {
+      "name": "Bicycle",
+      "description": "I'm selling a cruiser bicycle, very well-maintained and with very little use. I'm open to negotiation.",
+      "price": "250",
+      "adType": "Sale",
+      "imageUrl": "/images/keepop-bicycle.jpg",
+      "userId": 2,
+      "updatedAt": "2023-10-29T20:32:16.613Z",
+      "id": 5
+    },
+    {
+      "name": "Skate",
+      "description": "I'm looking for an urban skateboard, I'll pay more if it doesn't have stickers.",
+      "price": "150",
+      "adType": "Buy",
+      "imageUrl": "/images/keepop-skate.jpg",
+      "userId": 2,
+      "updatedAt": "2023-10-29T20:35:37.241Z",
+      "id": 6
+    },
+    {
+      "name": "Laptop",
+      "description": "Продается ноутбук в отличном состоянии.",
+      "price": "550",
+      "adType": "Sale",
+      "imageUrl": "/images/keepop-laptop.jpg",
+      "userId": 3,
+      "updatedAt": "2023-10-29T20:38:36.543Z",
+      "id": 7
+    },
+    {
+      "name": "Libro ",
+      "description": "Vendo el libro de \"El Quijote 2: el regreso de Sancho\". Muy bien cuidado. ",
+      "price": "15.50",
+      "adType": "Sale",
+      "imageUrl": "/images/keepop-book.jpg",
+      "userId": 4,
+      "updatedAt": "2023-10-29T20:42:48.952Z",
+      "id": 8
+    },
+    {
+      "name": "Consola Ps5",
+      "description": "Busco ps5 versión digital. No es necesario que vaya acompañada de juegos, por motivos evidentes",
+      "price": "350",
+      "adType": "Buy",
+      "imageUrl": "",
+      "userId": 4,
+      "updatedAt": "2023-10-29T20:45:07.323Z",
+      "id": 9
+    },
+    {
+      "name": "Chinese cat",
+      "description": "I am selling a Chinese lucky cat, in bright golden color.",
+      "price": "15",
+      "adType": "Sale",
+      "imageUrl": "https://img.fruugo.com/product/7/29/223571297_max.jpg",
+      "userId": 4,
+      "updatedAt": "2023-10-29T20:59:16.455Z",
+      "id": 10
+    },
+    {
+      "name": "Motorbike",
+      "description": "I'm selling a custom motorcycle. I know the photo looks AI-generated, but it's real!! I swear!!",
+      "price": "6000",
+      "adType": "Sale",
+      "imageUrl": "https://img.fruugo.com/product/6/66/664131666_max.jpg",
+      "userId": 4,
+      "updatedAt": "2023-10-29T21:02:39.195Z",
+      "id": 11
+    },
+    {
+      "name": "RC Car",
+      "description": "I'm looking to buy a remote control car similar to the one in the photo. It shouldn't have batteries; I prefer using regular batteries.",
+      "price": "59",
+      "adType": "Buy",
+      "imageUrl": "https://img.fruugo.com/product/0/44/231509440_max.jpg",
+      "userId": 4,
+      "updatedAt": "2023-10-29T21:10:24.086Z",
+      "id": 12
+    },
+    {
+      "name": "Android Smartphone",
+      "description": "I'm selling this Smartphone. Price is non-negotiable",
+      "price": "151.10",
+      "adType": "Sale",
+      "imageUrl": "https://gmedia.playstation.com/is/image/SIEPDC/PS5-lockup.png",
+      "userId": 4,
+      "updatedAt": "2023-10-29T21:12:15.343Z",
+      "id": 13
+    }
+  ]
+}

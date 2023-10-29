@@ -5,7 +5,7 @@ export const showAd = (ad) => {
   return `
     <a href="./ad-detail.html?id=${ad.id}">
       <div class="card-image">
-        <img src="${image}">
+        <img src="${image}" onerror="this.src='/images/no-image.jpg';">
       </div>
       <div class="card-data">
         <p>${ad.name}</p>
