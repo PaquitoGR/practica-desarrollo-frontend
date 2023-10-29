@@ -31,7 +31,7 @@ export const createAdController = (createAdForm) => {
       createAdForm.dispatchEvent(event);
       
       setTimeout(() => {
-        window.location = '/';        
+        window.location = '/';
       }, 2500);
       
     } catch (error) {

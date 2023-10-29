@@ -13,8 +13,11 @@ const parseAds = (ads) => {
   return parsedAds;
 }
 
-export const getAds = async () => {
-  const url = "http://localhost:8000/api/ads?_expand=user";
+export const getAds = async (search) => {
+  if (!search) {
+    search = '';
+  }
+  const url = `http://localhost:8000/api/ads?_expand=user&name_like=${search}`;
   let parsedAds = [];
 
   const response = await fetch(url);

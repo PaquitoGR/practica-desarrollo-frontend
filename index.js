@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   sessionController(session);
 
   const adsReel = document.getElementById('ads-reel');
+  const searchForm = document.getElementById('item-search-form');
 
   adsReel.addEventListener('adsLoaded', (event) => {
     showNotification(event.detail.type, event.detail.message);
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hide();
   });
   
-  adsReelController(adsReel);
+  adsReelController(adsReel, searchForm);
 });
 
 window.addEventListener('offline', () => {

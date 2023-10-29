@@ -3,13 +3,17 @@ import { showAd, noAds } from './adReelView.js';
 import { dispatchEvent, createCustomEvent } from '../utils/events.js';
 
 export const adsReelController = async (adsReel) => {
+    
   adsReel.innerHTML = '';
   let ads = [];
 
+  const params = new URLSearchParams(window.location.search);
+  const search = params.get('item-search');
+
   dispatchEvent('startLoadingAds', null, adsReel);
-  
+
   try {
-    ads = await getAds();
+    ads = await getAds(search);
   
     if (ads.length === 0) {
       adsReel.innerHTML = noAds();
@@ -34,4 +38,3 @@ const renderAds = (ads, adsReel) => {
     adsReel.appendChild(adDiv);
   });
 }
-
