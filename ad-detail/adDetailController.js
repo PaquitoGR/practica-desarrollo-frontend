@@ -40,6 +40,7 @@ const showUserButtons = (ad, adDetail) => {
   const deleteButton = document.createElement('button');
   const editButton = document.createElement('button');
 
+
   deleteButton.textContent = 'Delete';
   editButton.textContent = 'Edit'
 
@@ -49,9 +50,11 @@ const showUserButtons = (ad, adDetail) => {
   editButton.addEventListener('click', () => {
     editAd(ad);
   });
-
-  adDetail.appendChild(deleteButton);
-  adDetail.appendChild(editButton);
+  
+  const buttonsContainer = document.querySelector("#card-buttons");
+  
+  buttonsContainer.appendChild(deleteButton);
+  buttonsContainer.appendChild(editButton);
 }
 
 const removeAd = async (ad, adDetail) => {

@@ -29,8 +29,9 @@ export const adEditController = async (adEditForm, adId) => {
       const description = formData.get('description');
       const price = formData.get('price');
       const adType = formData.get('ad-type');
+      const imageUrl = formData.get('imageUrl')
 
-      await updateAd(adId, name, description, price, adType);
+      await updateAd(adId, name, description, price, adType, imageUrl);
       const event = createCustomEvent('adEdited', 'success', 'Ad modified successfully');
       adEditForm.dispatchEvent(event);
       
@@ -40,6 +41,9 @@ export const adEditController = async (adEditForm, adId) => {
       throw error;
     } finally {
       dispatchEvent('finishSavingAd', null, adEditForm);
+      setTimeout(() => {
+        window.location = `/ad-detail.html?id=${adId}`
+      }, 2500);
     }
   });
 }

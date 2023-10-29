@@ -8,11 +8,13 @@ export const showAd = (ad) => {
         <img src="${image}">
       </div>
       <div class="card-data">
-        <p>Item: ${ad.name}</p>
-        <p>Desc: ${ad.description}</p>
+        <p>${ad.name}</p>
+        <p>${ad.description}</p>
         <p>Price: ${ad.price}€</p>
         <p>${ad.adType}</p>
         <p>User: ${ad.seller}</p>
+      </div>
+      <div class="card-buttons" id="card-buttons">
       </div>
     </div>
   `;

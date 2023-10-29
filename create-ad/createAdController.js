@@ -27,13 +27,12 @@ export const createAdController = (createAdForm) => {
       
       await createAd(name, description, price, adType, imageUrl);
 
-      await createAd(name, description, price, adType);
       const event = createCustomEvent('adCreated', 'success', 'Ad created successfully');
       createAdForm.dispatchEvent(event);
       
       setTimeout(() => {
         window.location = '/';        
-      }, 3000);
+      }, 2500);
       
     } catch (error) {
       const event = createCustomEvent('adCreated', 'error', "Sorry, ad could't be created.");

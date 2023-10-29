@@ -29,6 +29,8 @@ export const showAdForm = (ad) => {
     `
   }
 
+  let image = ad.imageUrl || '';
+
   return `  
   <div class="form-row">
     <label for="name">Item name:</label>
@@ -46,9 +48,8 @@ export const showAdForm = (ad) => {
   ${adTypeRadio}
   </div>
   <div class="form-row">
-    <label for="image">Image</label>
-    <label for="image" class="custom-image-upload">Browse...</label>
-    <input type="file" id="image" name="image" accept="image/*">
+    <label for="imageUrl">Image</label>
+    <input type="url" id="imageUrl" name="imageUrl" value="${image}" >
   </div>
   <div class="form-row">
     <button type="submit">Update Ad</button>

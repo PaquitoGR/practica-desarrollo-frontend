@@ -11,24 +11,6 @@
   flex-direction: column;
 }
 
-.custom-image-upload {
-  background-color: var(--main-bg-color);
-  color: #000000;  
-  padding: 2px 7px;
-  border-radius: 2px;
-  border-style: solid;
-  border-width: 1px;
-  cursor: pointer;
-}
-.custom-image-upload:hover {
-  background-color: var(--main-bg-color);
-}
-.custom-image-upload:active{
-  background-color: var(--main-bg-color);
-  border-color: #999999;
-
-}
-
 /* Remove Arrows/Spinners Chrome, Safari, Edge, Opera*/
 #price::-webkit-inner-spin-button,
 #price::-webkit-outer-spin-button {
