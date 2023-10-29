@@ -23,6 +23,9 @@ export const createAdController = (createAdForm) => {
       const description = formData.get('description');
       const price = formData.get('price');
       const adType = formData.get('ad-type');
+      const imageUrl = formData.get('imageUrl');
+      
+      await createAd(name, description, price, adType, imageUrl);
 
       await createAd(name, description, price, adType);
       const event = createCustomEvent('adCreated', 'success', 'Ad created successfully');

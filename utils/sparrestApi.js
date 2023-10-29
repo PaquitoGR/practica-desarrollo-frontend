@@ -107,7 +107,7 @@ export const sparrest = () => {
         throw error;
       }
     }
-  }  
+  }
 
   const removeAd = async (endpoint) => {
     const url = baseUrl + endpoint;

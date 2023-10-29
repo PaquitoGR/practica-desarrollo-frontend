@@ -6,6 +6,7 @@ const parseAds = (ads) => {
     description: ad.description,
     price: ad.price,
     adType: ad.adType,
+    imageUrl: ad.imageUrl,
     id: ad.id
   }));
 

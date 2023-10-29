@@ -1,9 +1,11 @@
   
 export const showAd = (ad) => {
+  const image = ad.imageUrl || '/images/no-image.jpg';
+
   return `
     <div class="ad-card">
       <div class="card-image">
-        <img src="./images/no-image.jpg">
+        <img src="${image}">
       </div>
       <div class="card-data">
         <p>Item: ${ad.name}</p>
